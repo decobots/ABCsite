@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- Bootstrap CSS -->
+        <script src="MyFontPicker.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <style>
+            .ABCletters {
+                font-size:8vh;
+            } 
+            .ABCbuttons {
+                font-size:2vh;
+            } 
+            .container{
+                height: 80vh;
+                margin-top: 10vh;
+                margin-bottom: 10vh;
+            }
+
+
+            div[id^=font-picker] {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            }
+            div[id^=font-picker] * {
+                box-sizing: border-box;
+                }
+            div[id^=font-picker] p {
+                margin: 0;
+                padding: 0;
+                }
+            div[id^=font-picker] button {
+                color: inherit;
+                font-size: inherit;
+                background: none;
+                border: 0;
+                outline: none;
+                cursor: pointer;
+                }
+            div[id^=font-picker] .dropdown-button {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                height: 32px;
+                padding: 0 10px;
+                background: #c8eede;
+                }
+            div[id^=font-picker].expanded ul {
+                height:auto;
+                max-height: 60vh;
+                }
+            div[id^=font-picker] ul {
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                max-height: 0;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                transition: 0.3s;
+                -webkit-overflow-scrolling: touch;
+                }
+            div[id^=font-picker] ul li {
+                height: 32px;
+                list-style: none;
+                }
+            div[id^=font-picker] ul li button {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                padding: 0 10px;
+                white-space: nowrap;
+                }
+            div[id^=font-picker] ul li button:hover, div[id^=font-picker] ul li button:focus {
+                background: #dfece7;
+                }
+            div[id^=font-picker] ul li button.active-font {
+                background: #c8eede;
+                }
+            </style>
+        <title>Hello, letters!</title>
+      </head>
+<body>
+
+    
+<div class="container">
+    <div class="row">
+      <div class="col-10">
+        <div class="row">
+            <div class="col-12 apply-font">
+                <span id="1_c_b_l" class="ABCletters">А</span>&nbsp;<span id="1_c_s_l" class="me-3 ABCletters">а</span>
+                <span id="2_c_b_l" class="ABCletters">Б</span>&nbsp;<span id="2_c_s_l" class="me-3 ABCletters">б</span>
+                <span id="3_c_b_l" class="ABCletters">В</span>&nbsp;<span id="3_c_s_l" class="me-3 ABCletters">в</span>
+                <span id="4_c_b_l" class="ABCletters">Г</span>&nbsp;<span id="4_c_s_l" class="me-3 ABCletters">г</span>
+                <span id="5_c_b_l" class="ABCletters">Д</span>&nbsp;<span id="5_c_s_l" class="me-3 ABCletters">д</span>
+                <span id="6_c_b_l" class="ABCletters">Е</span>&nbsp;<span id="6_c_s_l" class="me-3 ABCletters">е</span>
+                <span id="7_c_b_l" class="ABCletters">Ё</span>&nbsp;<span id="7_c_s_l" class="me-3 ABCletters">ё</span>
+                <span id="8_c_b_l" class="ABCletters">Ж</span>&nbsp;<span id="8_c_s_l" class="me-3 ABCletters">ж</span>
+                <span id="9_c_b_l" class="ABCletters">З</span>&nbsp;<span id="9_c_s_l" class="me-3 ABCletters">з</span>
+                <span id="10_c_b_l" class="ABCletters">И</span>&nbsp;<span id="10_c_s_l" class="me-3 ABCletters">и</span>
+                <span id="11_c_b_l" class="ABCletters">Й</span>&nbsp;<span id="11_c_s_l" class="me-3 ABCletters">й</span>
+                <span id="12_c_b_l" class="ABCletters">К</span>&nbsp;<span id="12_c_s_l" class="me-3 ABCletters">к</span>
+                <span id="13_c_b_l" class="ABCletters">Л</span>&nbsp;<span id="13_c_s_l" class="me-3 ABCletters">л</span>
+                <span id="14_c_b_l" class="ABCletters">М</span>&nbsp;<span id="14_c_s_l" class="me-3 ABCletters">м</span>
+                <span id="15_c_b_l" class="ABCletters">Н</span>&nbsp;<span id="15_c_s_l" class="me-3 ABCletters">н</span>
+                <span id="16_c_b_l" class="ABCletters">О</span>&nbsp;<span id="16_c_s_l" class="me-3 ABCletters">о</span>
+                <span id="17_c_b_l" class="ABCletters">П</span>&nbsp;<span id="17_c_s_l" class="me-3 ABCletters">п</span>
+                <span id="18_c_b_l" class="ABCletters">Р</span>&nbsp;<span id="18_c_s_l" class="me-3 ABCletters">р</span>
+                <span id="19_c_b_l" class="ABCletters">С</span>&nbsp;<span id="19_c_s_l" class="me-3 ABCletters">с</span>
+                <span id="20_c_b_l" class="ABCletters">Т</span>&nbsp;<span id="20_c_s_l" class="me-3 ABCletters">т</span>
+                <span id="21_c_b_l" class="ABCletters">У</span>&nbsp;<span id="21_c_s_l" class="me-3 ABCletters">у</span>
+                <span id="22_c_b_l" class="ABCletters">Ф</span>&nbsp;<span id="22_c_s_l" class="me-3 ABCletters">ф</span>
+                <span id="23_c_b_l" class="ABCletters">Х</span>&nbsp;<span id="23_c_s_l" class="me-3 ABCletters">х</span>
+                <span id="24_c_b_l" class="ABCletters">Ц</span>&nbsp;<span id="24_c_s_l" class="me-3 ABCletters">ц</span>
+                <span id="25_c_b_l" class="ABCletters">Ч</span>&nbsp;<span id="25_c_s_l" class="me-3 ABCletters">ч</span>
+                <span id="26_c_b_l" class="ABCletters">Ш</span>&nbsp;<span id="26_c_s_l" class="me-3 ABCletters">ш</span>
+                <span id="27_c_b_l" class="ABCletters">Щ</span>&nbsp;<span id="27_c_s_l" class="me-3 ABCletters">щ</span>
+                <span id="28_c_b_l" class="ABCletters">Ъ</span>&nbsp;<span id="28_c_s_l" class="me-3 ABCletters">ъ</span>
+                <span id="29_c_b_l" class="ABCletters">Ы</span>&nbsp;<span id="29_c_s_l" class="me-3 ABCletters">ы</span>
+                <span id="30_c_b_l" class="ABCletters">Ь</span>&nbsp;<span id="30_c_s_l" class="me-3 ABCletters">ь</span>
+                <span id="31_c_b_l" class="ABCletters">Э</span>&nbsp;<span id="31_c_s_l" class="me-3 ABCletters">э</span>
+                <span id="32_c_b_l" class="ABCletters">Ю</span>&nbsp;<span id="32_c_s_l" class="me-3 ABCletters">ю</span>
+                <span id="33_c_b_l" class="ABCletters">Я</span>&nbsp;<span id="33_c_s_l" class="me-3 ABCletters">я</span>
+            </div>     
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <span id="1_c_b_b" class="ABCbuttons">А</span>&nbsp;<span id="1_c_s_b" class="me-2 ABCbuttons">а</span>
+                <span id="2_c_b_b" class="ABCbuttons">Б</span>&nbsp;<span id="2_c_s_b" class="me-2 ABCbuttons">б</span>
+                <span id="3_c_b_b" class="ABCbuttons">В</span>&nbsp;<span id="3_c_s_b" class="me-2 ABCbuttons">в</span>
+                <span id="4_c_b_b" class="ABCbuttons">Г</span>&nbsp;<span id="4_c_s_b" class="me-2 ABCbuttons">г</span>
+                <span id="5_c_b_b" class="ABCbuttons">Д</span>&nbsp;<span id="5_c_s_b" class="me-2 ABCbuttons">д</span>
+                <span id="6_c_b_b" class="ABCbuttons">Е</span>&nbsp;<span id="6_c_s_b" class="me-2 ABCbuttons">е</span>
+                <span id="7_c_b_b" class="ABCbuttons">Ё</span>&nbsp;<span id="7_c_s_b" class="me-2 ABCbuttons">ё</span>
+                <span id="8_c_b_b" class="ABCbuttons">Ж</span>&nbsp;<span id="8_c_s_b" class="me-2 ABCbuttons">ж</span>
+                <span id="9_c_b_b" class="ABCbuttons">З</span>&nbsp;<span id="9_c_s_b" class="me-2 ABCbuttons">з</span>
+                <span id="10_c_b_b" class="ABCbuttons">И</span>&nbsp;<span id="10_c_s_b" class="me-2 ABCbuttons">и</span>
+                <span id="11_c_b_b" class="ABCbuttons">Й</span>&nbsp;<span id="11_c_s_b" class="me-2 ABCbuttons">й</span>
+                <span id="12_c_b_b" class="ABCbuttons">К</span>&nbsp;<span id="12_c_s_b" class="me-2 ABCbuttons">к</span>
+                <span id="13_c_b_b" class="ABCbuttons">Л</span>&nbsp;<span id="13_c_s_b" class="me-2 ABCbuttons">л</span>
+                <span id="14_c_b_b" class="ABCbuttons">М</span>&nbsp;<span id="14_c_s_b" class="me-2 ABCbuttons">м</span>
+                <span id="15_c_b_b" class="ABCbuttons">Н</span>&nbsp;<span id="15_c_s_b" class="me-2 ABCbuttons">н</span>
+                <span id="16_c_b_b" class="ABCbuttons">О</span>&nbsp;<span id="16_c_s_b" class="me-2 ABCbuttons">о</span>
+                <span id="17_c_b_b" class="ABCbuttons">П</span>&nbsp;<span id="17_c_s_b" class="me-2 ABCbuttons">п</span>
+                <span id="18_c_b_b" class="ABCbuttons">Р</span>&nbsp;<span id="18_c_s_b" class="me-2 ABCbuttons">р</span>
+                <span id="19_c_b_b" class="ABCbuttons">С</span>&nbsp;<span id="19_c_s_b" class="me-2 ABCbuttons">с</span>
+                <span id="20_c_b_b" class="ABCbuttons">Т</span>&nbsp;<span id="20_c_s_b" class="me-2 ABCbuttons">т</span>
+                <span id="21_c_b_b" class="ABCbuttons">У</span>&nbsp;<span id="21_c_s_b" class="me-2 ABCbuttons">у</span>
+                <span id="22_c_b_b" class="ABCbuttons">Ф</span>&nbsp;<span id="22_c_s_b" class="me-2 ABCbuttons">ф</span>
+                <span id="23_c_b_b" class="ABCbuttons">Х</span>&nbsp;<span id="23_c_s_b" class="me-2 ABCbuttons">х</span>
+                <span id="24_c_b_b" class="ABCbuttons">Ц</span>&nbsp;<span id="24_c_s_b" class="me-2 ABCbuttons">ц</span>
+                <span id="25_c_b_b" class="ABCbuttons">Ч</span>&nbsp;<span id="25_c_s_b" class="me-2 ABCbuttons">ч</span>
+                <span id="26_c_b_b" class="ABCbuttons">Ш</span>&nbsp;<span id="26_c_s_b" class="me-2 ABCbuttons">ш</span>
+                <span id="27_c_b_b" class="ABCbuttons">Щ</span>&nbsp;<span id="27_c_s_b" class="me-2 ABCbuttons">щ</span>
+                <span id="28_c_b_b" class="ABCbuttons">Ъ</span>&nbsp;<span id="28_c_s_b" class="me-2 ABCbuttons">ъ</span>
+                <span id="29_c_b_b" class="ABCbuttons">Ы</span>&nbsp;<span id="29_c_s_b" class="me-2 ABCbuttons">ы</span>
+                <span id="30_c_b_b" class="ABCbuttons">Ь</span>&nbsp;<span id="30_c_s_b" class="me-2 ABCbuttons">ь</span>
+                <span id="31_c_b_b" class="ABCbuttons">Э</span>&nbsp;<span id="31_c_s_b" class="me-2 ABCbuttons">э</span>
+                <span id="32_c_b_b" class="ABCbuttons">Ю</span>&nbsp;<span id="32_c_s_b" class="me-2 ABCbuttons">ю</span>
+                <span id="33_c_b_b" class="ABCbuttons">Я</span>&nbsp;<span id="33_c_s_b" class="me-2 ABCbuttons">я</span>
+            </div>  
+            <div id="rules"></div>    
+        </div>
+      </div>
+      <div class="col-1"></div>
+      <div class="col-1">
+        <div id="font-picker" class="expanded"></div>
+        <!-- <div class="row" id="fonts_list">
+            <span id="times_b">Times new roman</span>
+            <span id="arial_b">Arial</span>
+        </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script>
+    document.getElementsByTagName("body")[0].onload = function() {define_events()}
+
+    function  define_events(){
+
+        const fontPicker = new FontPicker(
+		"AIzaSyAe6CVhz_0immQ3e0J3IrANuJQUAwLXZ3w", // Google API key
+		"Open Sans", // Default font
+		{ limit: 3000, scripts:['cyrillic']}, // Additional options
+	    );
+      //  fontEvents()//fonts
+        letterEvents()//letters
+    }
+
+    function getId(id){
+        return document.getElementById(id)
+    }
+
+    function listen(obj_id, listener, param) {
+        getId(obj_id).onclick = function() {
+            listener(param, obj_id)
+        }
+    }
+
+    //FONTS
+    //Set font to all ABC
+    // function setFont(fontName, obj_id){
+    //     var fonts = getId("fonts_list").children
+    //     console.log(fonts)
+    //     for (var f of fonts){
+    //         f.style.background = "none";
+    //     }
+    //     getId(obj_id).style.background = 'green'
+    //     var letters = document.getElementsByClassName("ABCletters");
+    //     for (l of letters){
+    //         l.style.fontFamily = fontName
+    //     }
+    // }
+
+    // function fontEvents(){
+    //     listen('times_b', setFont, "Times New Roman")
+    //     listen('arial_b', setFont, "Arial")
+    //     //listen('oswald_b', setFont, "Oswald")
+
+    // }
+
+
+
+    //LETTERS
+    //reset all selection from ABC
+    function resetSelection(){
+        for(var i=1; i<34 ;i++){
+            console.log(i)
+            getId(i+"_c_b_l").style.color = "black";
+                
+            getId(i+"_c_s_l").style.color = "black";
+
+            getId(i+"_c_b_b").style.color = "black";
+                
+            getId(i+"_c_s_b").style.color = "black";
+        }
+    }
+
+    function selectLetters(what_to_select, obj_id){
+        resetSelection()
+        getId(obj_id).style.color = "red"
+        for (letter_info of what_to_select){
+            select(letter_info[0],letter_info[1])
+        }
+
+        var text = ''
+        for(r of rules[obj_id]){
+            console.log( r)
+            text+="<span style='color:red;font-size:15vh; ' class='apply-font'>"+r[0]+"</span> — <span>"+r[1]+"</span><br/>"
+        }
+        getId("rules").innerHTML=text
+    }
+
+    function select(letter_number, letter_case){
+        getId(letter_number+"_c_"+letter_case+"_l").style.color = "red";
+    }
+
+
+    function letterEvents(){ 
+        listen('1_c_b_b', selectLetters, [[1,'b'], [5,'b'], [13,'b'], [14,'b'], [21,'b']]) //А - ДЛМУ
+        listen('1_c_s_b', selectLetters, [[1,'s'], [6,'s'], [9,'s'], [19,'s'], [31,'s'], [3,'s']]) //а - езосэв
+        listen('2_c_b_b', selectLetters, [[2,'b'], [3,'b'], [29,'b'], [30,'b'], [31,'b'], [4,'b']]) //Б - ВЪЫЬГ
+
+    }
+
+ var rules={
+    '1_c_b_b':[
+        ["AV","Эти буквы не всегда одинаковы по ширине"],
+        ["АДЛ", "Если д и л треугоьные — верхний угол должен быть одинаковым"],
+        ["АН","Перекладина А ниже чем у Н"],
+        ["АУМИ","Смотрим на угод наклонных штрихов"],
+            ],
+ }
+</script>
+</body>
+</html>
